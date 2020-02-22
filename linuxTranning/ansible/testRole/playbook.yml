@@ -1,0 +1,13 @@
+---
+- name: install java
+  hosts: localhost
+  roles:
+    - common
+- name: install apache and apache tomcat
+  hosts: localhost
+  roles:
+    - webserver
+- name: install mysql
+  hosts: localhost
+  roles:
+    - database

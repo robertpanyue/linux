@@ -1,0 +1,15 @@
+---
+- name: 1. install Apache
+  apt: name=apache2 state=present
+
+- name: 2. download tomcat
+  get_url:
+        url: http://apache-mirror.8birdsvideo.com/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz
+        dest: /tmp
+- name: Extracting tomcat
+  unarchive:
+        src: "/tmp/apache-tomcat-9.0.31.tar.gz"
+        dest: "/tmp"
+- name: Running tomcat
+  shell: /tmp/apache-tomcat-9.0.31/bin/startup.sh
+
